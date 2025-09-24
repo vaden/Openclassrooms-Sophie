@@ -166,6 +166,7 @@ h2 {
 }
 nav ul {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   list-style-type: none;
 }
@@ -174,9 +175,15 @@ nav li {
   font-size: 1.2em;
 }
 
-li:hover {
-  color: #b1663c;
+nav li:hover {
+  font-weight: bold;
 }
+
+nav li a {
+  color: #000;
+  text-decoration: none;
+}
+
 #introduction {
   display: flex;
   align-items: center;
@@ -206,12 +213,26 @@ li:hover {
   justify-content: center;
 }
 
+.pills {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
 .pill {
   text-align: center;
   border-radius: 60px;
   border: 1px solid #1d6154;
+  color: #1d6154;
   font-size: 16px;
   font-weight: 700;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #1d6154;
+  color: #fff;
 }
 
 #portfolio h2 {
@@ -269,6 +290,12 @@ input[type="submit"] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+input[type="submit"]:hover {
+  background-color: #0e2f28;
 }
 
 footer nav ul {
