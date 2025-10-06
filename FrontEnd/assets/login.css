@@ -200,3 +200,22 @@ form a {
   font-weight: 500;
   font-size: 14px;
 }
+
+.error-message {
+  color: #d63031;
+  background-color: #ffe0e0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  display: none; /* Caché par défaut */
+}
+
+.error-message.show {
+  display: block;
+}
+
+.input-error {
+  border: 2px solid #d63031 !important;
+}
