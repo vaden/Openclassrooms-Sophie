@@ -1,4 +1,4 @@
-import { works, categories, showWorks, removeWork, addNewWork } from "./app.js";
+import { works, categories, showWorks } from "./app.js";
 
 const URL_API = "http://localhost:5678/api";
 
@@ -29,7 +29,7 @@ export function openGalleryModal() {
     .addEventListener("click", openAddPhotoModal);
 }
 
-export function displayWorksInModal() {
+function displayWorksInModal() {
   const modalGallery = document.querySelector(".modal-gallery");
   if (!modalGallery) return;
   modalGallery.innerHTML = "";
@@ -54,7 +54,7 @@ export function displayWorksInModal() {
   });
 }
 
-export function openAddPhotoModal() {
+function openAddPhotoModal() {
   closeModal();
 
   const modal = document.createElement("div");
@@ -163,12 +163,12 @@ export function openAddPhotoModal() {
   });
 }
 
-export function closeModal() {
+function closeModal() {
   const modals = document.querySelectorAll(".modal");
   modals.forEach((modal) => modal.remove());
 }
 
-export async function deleteWork(workId) {
+async function deleteWork(workId) {
   const token = localStorage.getItem("authToken");
 
   if (!confirm("Voulez-vous vraiment supprimer cette image ?")) {
@@ -197,7 +197,7 @@ export async function deleteWork(workId) {
   }
 }
 
-export async function addWork(imageFile, title, categoryId) {
+async function addWork(imageFile, title, categoryId) {
   const token = localStorage.getItem("authToken");
 
   const formData = new FormData();
@@ -230,4 +230,12 @@ export async function addWork(imageFile, title, categoryId) {
     console.error("Erreur:", error);
     alert("Erreur lors de l'ajout de la photo");
   }
+}
+
+function removeWork(workId) {
+  works = works.filter((work) => work.id !== workId);
+}
+
+function addNewWork(work) {
+  works.push(work);
 }

@@ -4,18 +4,6 @@ const URL_API = "http://localhost:5678/api";
 export let works = [];
 export let categories = [];
 
-export function setWorks(newWorks) {
-  works = newWorks;
-}
-
-export function removeWork(workId) {
-  works = works.filter((work) => work.id !== workId);
-}
-
-export function addNewWork(work) {
-  works.push(work);
-}
-
 function isLoggedIn() {
   return localStorage.getItem("authToken") !== null;
 }
@@ -155,8 +143,6 @@ function filterByCategory(nomCategorie) {
   showWorks(worksFiltres);
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await fetchData();
-  updateNav();
-  showAdminElements();
-});
+await fetchData();
+updateNav();
+showAdminElements();

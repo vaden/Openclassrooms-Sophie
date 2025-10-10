@@ -209,7 +209,7 @@ form a {
   margin-top: 15px;
   font-size: 14px;
   text-align: center;
-  display: none; /* Caché par défaut */
+  display: none;
 }
 
 .error-message.show {
