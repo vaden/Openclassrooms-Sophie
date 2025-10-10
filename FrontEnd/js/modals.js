@@ -1,4 +1,4 @@
-import { works, categories, showWorks } from "./app.js";
+import { works, categories, showWorks, removeWork } from "./app.js";
 
 const URL_API = "http://localhost:5678/api";
 
@@ -230,10 +230,6 @@ async function addWork(imageFile, title, categoryId) {
     console.error("Erreur:", error);
     alert("Erreur lors de l'ajout de la photo");
   }
-}
-
-function removeWork(workId) {
-  works = works.filter((work) => work.id !== workId);
 }
 
 function addNewWork(work) {

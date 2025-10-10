@@ -4,6 +4,13 @@ const URL_API = "http://localhost:5678/api";
 export let works = [];
 export let categories = [];
 
+export function removeWork(workId) {
+  const index = works.findIndex((work) => work.id === workId);
+  if (index !== -1) {
+    works.splice(index, 1);
+  }
+}
+
 function isLoggedIn() {
   return localStorage.getItem("authToken") !== null;
 }
