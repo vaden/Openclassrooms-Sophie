@@ -1,8 +1,8 @@
 import { openGalleryModal } from "./modals.js";
 const URL_API = "http://localhost:5678/api";
 
-export let works = [];
-export let categories = [];
+export const works = [];
+export const categories = [];
 
 export function removeWork(workId) {
   const index = works.findIndex((work) => work.id === workId);
@@ -81,8 +81,13 @@ async function fetchData() {
       throw new Error(`Erreur categories: ${categoriesResponse.status}`);
     }
 
-    works = await worksResponse.json();
-    categories = await categoriesResponse.json();
+    const worksData = await worksResponse.json();
+    const categoriesData = await categoriesResponse.json();
+
+    works.length = 0;
+    works.push(...worksData);
+    categories.length = 0;
+    categories.push(...categoriesData);
 
     showWorks(works);
     createFilters();
